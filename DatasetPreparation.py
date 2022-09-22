@@ -1,6 +1,7 @@
 import json
 import gzip
 import matplotlib.pyplot as plt
+from sklearn.feature_extraction.text import CountVectorizer
 
 f = gzip.open('goemotions.json.gz', 'rb')
 
@@ -28,3 +29,4 @@ plt.xlabel("Sentiments")
 plt.ylabel("Number of Occurences")
 plt.savefig("Sentiments Histogram")
 plt.show()
+
