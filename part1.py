@@ -5,5 +5,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction.text import CountVectorizer
 
 file_path = "goemotions.json.gz"
-data = gzip.open(file_path, 'r')
-print(data)
+f = gzip.open(file_path, 'rb')
+
+json_load = json.load(f)
+print(json.dumps(json_load, indent=4))
