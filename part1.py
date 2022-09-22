@@ -1,26 +1,30 @@
-<<<<<<< HEAD
 import json
 import gzip
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
-f = gzip.open('C:\\Users\\15146\\School\\COMP 472 Labs\\project 1\\comp472\\goemotions.json.gz', 'rb')
-
-json_load = json.load(f)
-# jsonArr = np.array(json_load)
-# x = [jsonArr[key] for key in jsonArr]
-# print(x)
-print(json.dumps(json_load, indent=4))
-
-=======
-import numpy as np
-import json
-import gzip
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.feature_extraction.text import CountVectorizer
-
-file_path = "goemotions.json.gz"
-f = gzip.open(file_path, 'rb')
+f = gzip.open('goemotions.json.gz', 'rb')
 
 json_load = json.load(f)
-print(json.dumps(json_load, indent=4))
->>>>>>> 70eb35c3aaf2517420f4d3c2b80ff83e60553095
+
+emotionsList =  [list[1] for list in json_load]
+sentimentsList =  [list[2] for list in json_load]
+
+plt.hist(emotionsList, bins = 55)
+plt.subplots_adjust(bottom = 0.3)
+plt.xticks(rotation = -90, size=5)
+plt.yticks(size=7)
+plt.title("Histogram of the Distribution of Emotions")
+plt.xlabel("Emotions")
+plt.ylabel("Number of Occurences")
+plt.savefig("Emotions Histogram")
+plt.show()
+
+plt.hist(sentimentsList)
+plt.subplots_adjust(bottom = 0.3)
+plt.xticks(size=7)
+plt.yticks(size=7)
+plt.title("Histogram of the Distribution of Emotions")
+plt.xlabel("Sentiments")
+plt.ylabel("Number of Occurences")
+plt.savefig("Sentiments Histogram")
+plt.show()
