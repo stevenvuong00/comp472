@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import json
 import gzip
 # import matplotlib.pyplot as plt
@@ -10,3 +11,16 @@ json_load = json.load(f)
 # print(x)
 print(json.dumps(json_load, indent=4))
 
+=======
+import numpy as np
+import json
+import gzip
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.feature_extraction.text import CountVectorizer
+
+file_path = "goemotions.json.gz"
+f = gzip.open(file_path, 'rb')
+
+json_load = json.load(f)
+print(json.dumps(json_load, indent=4))
+>>>>>>> 70eb35c3aaf2517420f4d3c2b80ff83e60553095
