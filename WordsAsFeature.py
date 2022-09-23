@@ -5,36 +5,47 @@ from sklearn.naive_bayes import MultinomialNB
 import numpy as np
 
 
-commentsList =  [list[0] for list in json_load]
-vec = CountVectorizer()
-commentsVectorized = vec.fit_transform(commentsList)
 
 # 2.1
+commentsList =  [list[0] for list in json_load]
+vec = CountVectorizer()
+
+commentsVectorized = vec.fit_transform(commentsList)
 vocabulary =  vec.get_feature_names_out()
 vocabCount = np.asarray(commentsVectorized.sum(axis=0))[0]
-print(dict(zip(vocabulary, vocabCount)))
+# print(dict(zip(vocabulary, vocabCount)))
 
 # 2.2
-training_set, test_set = train_test_split(commentsList, test_size=0.20, random_state=77)
+# Splitting the dataset
+training_set, test_set = train_test_split(json_load, test_size=0.20, random_state=77)
 
-emotionsVectorized = vec.fit_transform(emotionsList)
-emotions = vec.get_feature_names_out()
+# 2.3.1
+def naiveBayes():
+    # Extracting the emotions
+    vec.fit_transform(emotionsList)
+    emotions = vec.get_feature_names_out()
 
-emotionsDict = {}
-for i, emotion in enumerate(emotions):
-    emotionsDict[emotion] = i
+    # Associating emotions to a number
+    emotionsDict = {}
+    for i, emotion in enumerate(emotions):
+        emotionsDict[emotion] = i
+    print(emotionsDict)
 
-print(emotionsDict)
-emotionsY = []
+    # Generating array Y
+    emotionsY = []
+    for i, data in enumerate(training_set):
+        e = data[1]
+        emotionsY.append(emotionsDict[e])
 
-for i, data in enumerate(json_load):
-    e = data[1]
-    emotionsY.append(emotionsDict[e])
+    # Classifying the data
+    classifier = MultinomialNB()
+    model = classifier.fit(vec.fit_transform([list[0] for list in training_set]), emotionsY)
 
-classifier = MultinomialNB()
-model = classifier.fit(vec.fit_transform(commentsList), emotionsY)
+    # Testing the model
+    testY = []
+    for data in test_set:
+        e = data[1]
+        testY.append(emotionsDict[e])
 
-test_comment = vec.transform(np.array(['i love you']))
-
-predict = model.predict(test_comment)
-print(predict)
+    score = model.score(vec.transform([list[0] for list in test_set]), testY)
+    print(score)
