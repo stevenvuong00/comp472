@@ -1,8 +1,10 @@
-from DatasetPreparation import json_load, emotionsList, sentimentsList
+import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
-import numpy as np
+from sklearn import tree
+from sklearn import preprocessing
+from DatasetPreparation import json_load, emotionsList, sentimentsList
 
 
 
@@ -49,3 +51,26 @@ def naiveBayes():
 
     score = model.score(vec.transform([list[0] for list in test_set]), testY)
     print(score)
+
+# 2.3.2
+def decisionTree():
+    # training set is dateset from decision tree tutorial X
+    np_array = np.array(training_set)
+    X = np_array[:, 0:-2]
+    y_emotion = np_array[:, -2]
+
+    # encode
+    # need to find max number of features (words) in each data entry? put 100 for now
+    le = preprocessing.LabelEncoder()
+    for feature in range(1):
+        # check the length of the current data entry if feature < than nb of words for that dataset
+        # feature will go in range to the max number of features
+        # need to handle case for the data entries that have less than that
+        # must not go out of range
+        X[:, feature] = le.fit_transform(X[:, feature])
+
+    dtc = tree.DecisionTreeClassifier(criterion="entropy")
+    dtc.fit(X, y_emotion)
+    tree.plot_tree(dtc)
+
+decisionTree()
