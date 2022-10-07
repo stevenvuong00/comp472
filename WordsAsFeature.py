@@ -1,4 +1,6 @@
 import numpy as np
+import string
+import graphviz
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
@@ -54,15 +56,51 @@ def naiveBayes():
 
 # 2.3.2
 def decisionTree():
+
+    targets_emotion = [element[1] for element in training_set]
+    targets_sentiment = [element[2] for element in training_set]
+
+    # list of only the words without label
+    only_words = [element[0] for element in training_set]
+
+    # filter punctuation
+    clean_words = []
+    for element in only_words:
+        clean = element.translate(str.maketrans('', '', string.punctuation))
+        clean_words.append(clean)
+
+    # print(len(clean_words))
+
+    # transform each sublist into a list of list
+    words_list = [element.split() for element in clean_words]
+
+    # max length of all the sublists
+    maxLenSublist = max(words_list, key=len)
+
+    padded_words = np.zeros((len(training_set), len(maxLenSublist)), dtype='<U25')
+
+    # adding all the words to the new array
+    for i in range(len(training_set)):
+        for j in range(len(words_list[i])):
+            # need to prevent index uot of bound, depends on the length of the orinigal word list
+            padded_words[i][j] = words_list[i][j]
+    # print(padded_words)
+
+    # re-adding the emotion and sentiments
+    dataset = padded_words.copy().tolist()
+    for i in range(len(dataset)):
+        dataset[i].append(targets_emotion[i])
+        dataset[i].append(targets_sentiment[i])
+
     # training set is dateset from decision tree tutorial X
-    np_array = np.array(training_set)
+    np_array = np.array(dataset)
     X = np_array[:, 0:-2]
     y_emotion = np_array[:, -2]
 
     # encode
     # need to find max number of features (words) in each data entry? put 100 for now
     le = preprocessing.LabelEncoder()
-    for feature in range(1):
+    for feature in range(len(maxLenSublist)):
         # check the length of the current data entry if feature < than nb of words for that dataset
         # feature will go in range to the max number of features
         # need to handle case for the data entries that have less than that
@@ -72,5 +110,12 @@ def decisionTree():
     dtc = tree.DecisionTreeClassifier(criterion="entropy")
     dtc.fit(X, y_emotion)
     tree.plot_tree(dtc)
+    
+    # dot_data = tree.export_graphviz(dtc, out_file=None,
+    # feature_names= clean_words,
+    # class_names = targets_emotion,
+    # filled =True, rounded=True)
+    # graph = graphviz.Source(dot_data)
+    # graph.render("mytree")
 
 decisionTree()

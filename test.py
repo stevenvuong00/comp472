@@ -1,4 +1,5 @@
 import numpy as np
+import string
 
 # dataset = np.array([
 # ['sunny', 'hot', 'high', 'false', 'Don\'t Play'],
@@ -42,7 +43,7 @@ for i, j in enumerate(a):
 # https://stackoverflow.com/questions/47666539/numpy-zeros-and-string-data-type blank but in ''
 
 # simulate json_load
-arr3 = [['Taking a blood thinner such as aspirin would keep it from clotting', 'approval', 'positive'], ['I am glad that the message touched you, I really am.', 'gratitude', 'positive']]
+arr3 = [['Taking a blood thinner such as aspirin would keep it from clotting!', 'approval', 'positive'], ['I am glad that the message touched you, I really am.', 'gratitude', 'positive']]
 # np_arr3 = np.array(arr3)
 
 # get all the last 2 elements of the data set
@@ -55,6 +56,14 @@ print(targets_sentiment)
 # list of only the words without label
 only_words = [element[0] for element in arr3]
 print(only_words)
+
+# filter punctuation
+clean_words = []
+for element in only_words:
+    clean = element.translate(str.maketrans('', '', string.punctuation))
+    clean_words.append(clean)
+
+print(clean_words) 
 
 # transform each sublist into a list of list
 words_list = [element.split() for element in only_words]
@@ -82,6 +91,8 @@ training_set = padded_words.copy().tolist()
 for i in range(len(training_set)):
     training_set[i].append(targets_emotion[i])
     training_set[i].append(targets_sentiment[i])
+
+
 
 # print(targets_emotion[0])
 print(training_set)
