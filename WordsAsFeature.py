@@ -1,4 +1,5 @@
 from sklearn import preprocessing
+from sklearn.metrics import classification_report, confusion_matrix
 from DatasetPreparation import json_load, emotionsList, sentimentsList
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
@@ -83,18 +84,22 @@ def naiveBayes():
     print('Sentiments score: {}'.format(scoreSentiments))
 
 
-# def decisionTree():
-#     X = np.array(training_set)[:, 0]
-#     print(X)
-#     yEmotions = np.array(training_set)[:, 1]
-#     # print(yEmotions)
-#     le = preprocessing.LabelEncoder()
-#     X = le.fit_transform(X)
-#     print(X)
-#     dtc = tree.DecisionTreeClassifier(criterion="entropy")
-#     dtc.fit(X, yEmotions)
-#     # tree.plot_tree(dtc)
+def decisionTree():
+    encoded = vec.fit_transform(element[0] for element in json_load)
+    emotions = [emotion[1] for emotion in json_load]
+    sentiments = [sentiment[2] for sentiment in json_load]
+    xEmotion_training, xEmotion_test, yEmotion_training, yEmotion_test = train_test_split(encoded, emotions, test_size=0.20, random_state=77)
+    xSentiment_training, xSentiment_test, ySentiment_training, ySentiment_test = train_test_split(encoded, sentiments, test_size=0.20, random_state=77)
 
+    dtc = tree.DecisionTreeClassifier(criterion = 'entropy')
 
-naiveBayes()
-# decisionTree()
+    dtc.fit(xEmotion_training, yEmotion_training)
+    yEmotion_pred = dtc.predict(xEmotion_test)
+
+    dtc.fit(xSentiment_training, ySentiment_training)
+    ySentiment_pred = dtc.predict(xSentiment_test)
+
+    print(classification_report(yEmotion_test, yEmotion_pred))
+    print(classification_report(ySentiment_test, ySentiment_pred))
+
+decisionTree()
