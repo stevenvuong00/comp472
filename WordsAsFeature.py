@@ -99,7 +99,10 @@ def decisionTree():
     dtc.fit(xSentiment_training, ySentiment_training)
     ySentiment_pred = dtc.predict(xSentiment_test)
 
+    print(confusion_matrix(yEmotion_test, yEmotion_pred))
     print(classification_report(yEmotion_test, yEmotion_pred))
+
+    print(confusion_matrix(ySentiment_test, ySentiment_pred))
     print(classification_report(ySentiment_test, ySentiment_pred))
 
 decisionTree()
