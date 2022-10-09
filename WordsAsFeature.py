@@ -1,7 +1,9 @@
+from sklearn import preprocessing
 from DatasetPreparation import json_load, emotionsList, sentimentsList
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
+from sklearn import tree, preprocessing
 import numpy as np
 
 
@@ -32,20 +34,67 @@ def naiveBayes():
     print(emotionsDict)
 
     # Generating array Y
-    emotionsY = []
+    yEmotions = []
     for i, data in enumerate(training_set):
         e = data[1]
-        emotionsY.append(emotionsDict[e])
+        yEmotions.append(emotionsDict[e])
 
     # Classifying the data
     classifier = MultinomialNB()
-    model = classifier.fit(vec.fit_transform([list[0] for list in training_set]), emotionsY)
+    model = classifier.fit(vec.fit_transform([list[0] for list in training_set]), yEmotions)
 
     # Testing the model
-    testY = []
+    testYEmotions = []
     for data in test_set:
         e = data[1]
-        testY.append(emotionsDict[e])
+        testYEmotions.append(emotionsDict[e])
 
-    score = model.score(vec.transform([list[0] for list in test_set]), testY)
-    print(score)
+    scoreEmotions = model.score(vec.transform([list[0] for list in test_set]), testYEmotions)
+    print('Emotion score: {}'.format(scoreEmotions))
+
+    # Redoing the same thing for sentiments
+
+    #Extracting the sentiments
+    vec.fit_transform(sentimentsList)
+    sentiments = vec.get_feature_names_out()
+
+    # Associating sentiments to a number
+    sentimentsDict = {}
+    for i, sentiment in enumerate(sentiments):
+        sentimentsDict[sentiment] = i
+    print(sentimentsDict)
+
+    # Generating array Y
+    ySentiments = []
+    for i, data in enumerate(training_set):
+        s = data[2]
+        ySentiments.append(sentimentsDict[s])
+
+    # Classifying the data
+    model = classifier.fit(vec.fit_transform([list[0] for list in training_set]), ySentiments)
+
+    # Testing the model
+    testYSentiments = []
+    for data in test_set:
+        s = data[2]
+        testYSentiments.append(sentimentsDict[s])
+    
+    scoreSentiments = model.score(vec.transform([list[0] for list in test_set]), testYSentiments)
+    print('Sentiments score: {}'.format(scoreSentiments))
+
+
+# def decisionTree():
+#     X = np.array(training_set)[:, 0]
+#     print(X)
+#     yEmotions = np.array(training_set)[:, 1]
+#     # print(yEmotions)
+#     le = preprocessing.LabelEncoder()
+#     X = le.fit_transform(X)
+#     print(X)
+#     dtc = tree.DecisionTreeClassifier(criterion="entropy")
+#     dtc.fit(X, yEmotions)
+#     # tree.plot_tree(dtc)
+
+
+naiveBayes()
+# decisionTree()
