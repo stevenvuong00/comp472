@@ -125,9 +125,9 @@ def multi_layered_perceptron():
     classifier.fit(x_sentiment_training, y_sentiment_training)
 
     emotion_score = classifier.score(x_emotion_test, y_emotion_test)
-    emotion_score = classifier.score(x_sentiment_test, y_sentiment_test)
+    sentiment_score = classifier.score(x_sentiment_test, y_sentiment_test)
 
-    print(emotion_score)
+    print(sentiment_score)
 
 multi_layered_perceptron()
 # decisionTree()
