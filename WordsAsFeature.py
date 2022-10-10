@@ -1,108 +1,133 @@
-from sklearn import preprocessing
+import numpy as np
+from sklearn import tree
 from sklearn.metrics import classification_report, confusion_matrix
-from DatasetPreparation import json_load, emotionsList, sentimentsList
+from DatasetPreparation import json_load, emotionsList, sentiments_list
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
-from sklearn import tree, preprocessing
-import numpy as np
+from sklearn.neural_network import MLPClassifier
 
 
 
 # 2.1
-commentsList =  [list[0] for list in json_load]
 vec = CountVectorizer()
+def extract_feature():
+    commentsList =  [list[0] for list in json_load]
 
-commentsVectorized = vec.fit_transform(commentsList)
-vocabulary =  vec.get_feature_names_out()
-vocabCount = np.asarray(commentsVectorized.sum(axis=0))[0]
-# print(dict(zip(vocabulary, vocabCount)))
+    commentsVectorized = vec.fit_transform(commentsList)
+    vocabulary =  vec.get_feature_names_out()
+    vocabCount = np.asarray(commentsVectorized.sum(axis=0))[0]
+    # print(dict(zip(vocabulary, vocabCount)))
 
 # 2.2
 # Splitting the dataset
-training_set, test_set = train_test_split(json_load, test_size=0.20, random_state=77)
+def split_dataset():
+    training_set, test_set = train_test_split(json_load, test_size=0.20, random_state=77)
+    return training_set, test_set
 
 # 2.3.1
-def naiveBayes():
+def naive_bayes():
+    training_set, test_set = split_dataset()
+
     # Extracting the emotions
     vec.fit_transform(emotionsList)
     emotions = vec.get_feature_names_out()
 
     # Associating emotions to a number
-    emotionsDict = {}
+    emotions_dict = {}
     for i, emotion in enumerate(emotions):
-        emotionsDict[emotion] = i
-    print(emotionsDict)
+        emotions_dict[emotion] = i
+    print(emotions_dict)
 
     # Generating array Y
-    yEmotions = []
+    y_emotions = []
     for i, data in enumerate(training_set):
         e = data[1]
-        yEmotions.append(emotionsDict[e])
+        y_emotions.append(emotions_dict[e])
 
     # Classifying the data
     classifier = MultinomialNB()
-    model = classifier.fit(vec.fit_transform([list[0] for list in training_set]), yEmotions)
+    model = classifier.fit(vec.fit_transform([list[0] for list in training_set]), y_emotions)
 
     # Testing the model
-    testYEmotions = []
+    test_y_emotions = []
     for data in test_set:
         e = data[1]
-        testYEmotions.append(emotionsDict[e])
+        test_y_emotions.append(emotions_dict[e])
 
-    scoreEmotions = model.score(vec.transform([list[0] for list in test_set]), testYEmotions)
-    print('Emotion score: {}'.format(scoreEmotions))
+    score_emotions = model.score(vec.transform([list[0] for list in test_set]), test_y_emotions)
+    print('Emotion score: {}'.format(score_emotions))
 
     # Redoing the same thing for sentiments
 
     #Extracting the sentiments
-    vec.fit_transform(sentimentsList)
+    vec.fit_transform(sentiments_list)
     sentiments = vec.get_feature_names_out()
 
     # Associating sentiments to a number
-    sentimentsDict = {}
+    sentiments_dict = {}
     for i, sentiment in enumerate(sentiments):
-        sentimentsDict[sentiment] = i
-    print(sentimentsDict)
+        sentiments_dict[sentiment] = i
+    print(sentiments_dict)
 
     # Generating array Y
-    ySentiments = []
+    y_sentiments = []
     for i, data in enumerate(training_set):
         s = data[2]
-        ySentiments.append(sentimentsDict[s])
+        y_sentiments.append(sentiments_dict[s])
 
     # Classifying the data
-    model = classifier.fit(vec.fit_transform([list[0] for list in training_set]), ySentiments)
+    model = classifier.fit(vec.fit_transform([list[0] for list in training_set]), y_sentiments)
 
     # Testing the model
-    testYSentiments = []
+    test_y_sentiments = []
     for data in test_set:
         s = data[2]
-        testYSentiments.append(sentimentsDict[s])
+        test_y_sentiments.append(sentiments_dict[s])
     
-    scoreSentiments = model.score(vec.transform([list[0] for list in test_set]), testYSentiments)
-    print('Sentiments score: {}'.format(scoreSentiments))
+    score_sentiments = model.score(vec.transform([list[0] for list in test_set]), test_y_sentiments)
+    print('Sentiments score: {}'.format(score_sentiments))
 
 
-def decisionTree():
+def decision_tree():
     encoded = vec.fit_transform(element[0] for element in json_load)
     emotions = [emotion[1] for emotion in json_load]
     sentiments = [sentiment[2] for sentiment in json_load]
-    xEmotion_training, xEmotion_test, yEmotion_training, yEmotion_test = train_test_split(encoded, emotions, test_size=0.20, random_state=77)
-    xSentiment_training, xSentiment_test, ySentiment_training, ySentiment_test = train_test_split(encoded, sentiments, test_size=0.20, random_state=77)
 
-    dtc = tree.DecisionTreeClassifier(criterion = 'entropy')
+    x_emotion_training, x_emotion_test, y_emotion_training, y_emotion_test = train_test_split(encoded, emotions, test_size=0.20, random_state=77)
+    x_sentiment_training, x_sentiment_test, y_sentiment_training, y_sentiment_test = train_test_split(encoded, sentiments, test_size=0.20, random_state=77)
 
-    dtc.fit(xEmotion_training, yEmotion_training)
-    yEmotion_pred = dtc.predict(xEmotion_test)
+    dtc = tree.DecisionTreeClassifier()
 
-    dtc.fit(xSentiment_training, ySentiment_training)
-    ySentiment_pred = dtc.predict(xSentiment_test)
+    dtc.fit(x_emotion_training, y_emotion_training)
+    y_emotion_pred = dtc.predict(x_emotion_test)
 
-    print(confusion_matrix(yEmotion_test, yEmotion_pred))
-    print(classification_report(yEmotion_test, yEmotion_pred))
+    dtc.fit(x_sentiment_training, y_sentiment_training)
+    y_sentiment_pred = dtc.predict(x_sentiment_test)
 
-    print(confusion_matrix(ySentiment_test, ySentiment_pred))
-    print(classification_report(ySentiment_test, ySentiment_pred))
+    print(confusion_matrix(y_emotion_test, y_emotion_pred))
+    print(classification_report(y_emotion_test, y_emotion_pred))
 
-decisionTree()
+    print(confusion_matrix(y_sentiment_test, y_sentiment_pred))
+    print(classification_report(y_sentiment_test, y_sentiment_pred))
+
+
+def multi_layered_perceptron():
+    encoded = vec.fit_transform(element[0] for element in json_load)
+    emotions = [emotion[1] for emotion in json_load]
+    sentiments = [sentiment[2] for sentiment in json_load]
+
+    x_emotion_training, x_emotion_test, y_emotion_training, y_emotion_test = train_test_split(encoded, emotions, test_size=0.20, random_state=77)
+    x_sentiment_training, x_sentiment_test, y_sentiment_training, y_sentiment_test = train_test_split(encoded, sentiments, test_size=0.20, random_state=77)
+
+    classifier = MLPClassifier()
+    classifier.fit(x_emotion_training, y_emotion_training)
+    classifier.fit(x_sentiment_training, y_sentiment_training)
+
+    emotion_score = classifier.score(x_emotion_test, y_emotion_test)
+    emotion_score = classifier.score(x_sentiment_test, y_sentiment_test)
+
+    print(emotion_score)
+
+multi_layered_perceptron()
+# decisionTree()
