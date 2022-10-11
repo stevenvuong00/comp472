@@ -119,7 +119,7 @@ def multi_layered_perceptron():
     # Testing the model
     y_sentiment_pred = classifier.predict(x_sentiment_test)
 
-    print("Base Sentiments Decision Tree Model")
+    print("Base Sentiments Multi-Layered Perceptron")
     print(confusion_matrix(y_sentiment_test, y_sentiment_pred))
     print(classification_report(y_sentiment_test, y_sentiment_pred))
 
