@@ -40,7 +40,7 @@ def naive_bayes():
     # Testing the model
     y_emotion_pred = nb_emotion.predict(x_emotion_test)
 
-    print("Emotions Naive Bayes Model")
+    print("Base Emotions Naive Bayes Model")
     print(confusion_matrix(y_emotion_test, y_emotion_pred))
     print(classification_report(y_emotion_test, y_emotion_pred))
 
@@ -54,7 +54,7 @@ def naive_bayes():
     # Testing the model
     y_emotion_pred = nb_sentiment.predict(x_sentiment_test)
 
-    print("Sentiments Naive Bayes Model")
+    print("Base Sentiments Naive Bayes Model")
     print(confusion_matrix(y_emotion_test, y_emotion_pred))
     print(classification_report(y_emotion_test, y_emotion_pred))
 
@@ -72,7 +72,7 @@ def decision_tree():
     y_emotion_pred = classifier.predict(x_emotion_test)
 
     # Getting output
-    print("Emotions Decision Tree Model")
+    print("Base Emotions Decision Tree Model")
     print(confusion_matrix(y_emotion_test, y_emotion_pred))
     print(classification_report(y_emotion_test, y_emotion_pred))
 
@@ -87,7 +87,7 @@ def decision_tree():
     # Testing the model
     y_sentiment_pred = classifier.predict(x_sentiment_test)
 
-    print("Sentiments Decision Tree Model")
+    print("Base Sentiments Decision Tree Model")
     print(confusion_matrix(y_sentiment_test, y_sentiment_pred))
     print(classification_report(y_sentiment_test, y_sentiment_pred))
 
@@ -105,7 +105,7 @@ def multi_layered_perceptron():
     y_emotion_pred = classifier.predict(x_emotion_test)
 
     # Getting output
-    print("Emotions Multi-Layered Perceptron")
+    print("Base Emotions Multi-Layered Perceptron")
     print(confusion_matrix(y_emotion_test, y_emotion_pred))
     print(classification_report(y_emotion_test, y_emotion_pred))
 
@@ -119,7 +119,7 @@ def multi_layered_perceptron():
     # Testing the model
     y_sentiment_pred = classifier.predict(x_sentiment_test)
 
-    print("Sentiments Decision Tree Model")
+    print("Base Sentiments Decision Tree Model")
     print(confusion_matrix(y_sentiment_test, y_sentiment_pred))
     print(classification_report(y_sentiment_test, y_sentiment_pred))
 
