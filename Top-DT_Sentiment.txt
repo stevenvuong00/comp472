@@ -1,0 +1,16 @@
+Top Sentiments Decision Tree Model
+Best hyperparams: {'criterion': 'gini', 'max_depth': 50, 'min_samples_split': 8}
+[[ 625  268 2612  218]
+ [ 261 1991 4964  440]
+ [ 402  777 8912  872]
+ [ 358  555 5640 5469]]
+              precision    recall  f1-score   support
+
+   ambiguous    0.37971   0.16788   0.23282      3723
+    negative    0.55444   0.26006   0.35405      7656
+     neutral    0.40275   0.81292   0.53864     10963
+    positive    0.78140   0.45492   0.57505     12022
+
+    accuracy                        0.49462     34364
+   macro avg    0.52957   0.42394   0.42514     34364
+weighted avg    0.56652   0.49462   0.47712     34364
