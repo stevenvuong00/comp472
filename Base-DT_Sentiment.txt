@@ -1,0 +1,15 @@
+Base Sentiments Decision Tree Model
+[[1838  568  902  415]
+ [ 820 4567 1540  729]
+ [1586 2527 5092 1758]
+ [ 941 1321 2655 7105]]
+              precision    recall  f1-score   support
+
+   ambiguous    0.35448   0.49369   0.41266      3723
+    negative    0.50840   0.59653   0.54895      7656
+     neutral    0.49975   0.46447   0.48147     10963
+    positive    0.71000   0.59100   0.64506     12022
+
+    accuracy                        0.54132     34364
+   macro avg    0.51816   0.53642   0.52204     34364
+weighted avg    0.55950   0.54132   0.54628     34364

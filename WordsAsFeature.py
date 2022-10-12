@@ -3,7 +3,7 @@ from sklearn import tree
 from sklearn.metrics import classification_report, confusion_matrix
 from DatasetPreparation import json_load, emotionsList, sentiments_list
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.neural_network import MLPClassifier
 
@@ -24,14 +24,15 @@ def split_dataset_emotion():
     x_emotion_training, x_emotion_test, y_emotion_training, y_emotion_test = train_test_split(commentsVectorized, emotions, test_size=0.20, random_state=77)
     return x_emotion_training, x_emotion_test, y_emotion_training, y_emotion_test
 
-x_emotion_training, x_emotion_test, y_emotion_training, y_emotion_test = split_dataset_emotion()
-
 def split_dataset_sentiment():
     x_sentiment_training, x_sentiment_test, y_sentiment_training, y_sentiment_test  = train_test_split(commentsVectorized, sentiments, test_size=0.20, random_state=77)
     return x_sentiment_training, x_sentiment_test, y_sentiment_training, y_sentiment_test 
 
+x_emotion_training, x_emotion_test, y_emotion_training, y_emotion_test = split_dataset_emotion()
+x_sentiment_training, x_sentiment_test, y_sentiment_training, y_sentiment_test  = split_dataset_sentiment()
+
 # 2.3.1
-def naive_bayes():
+def base_mnb():
 
     # Classifying the data
     classifier = MultinomialNB()
@@ -42,28 +43,20 @@ def naive_bayes():
 
     print("Base Emotions Naive Bayes Model")
     print(confusion_matrix(y_emotion_test, y_emotion_pred))
-    print(classification_report(y_emotion_test, y_emotion_pred))
+    print(classification_report(y_emotion_test, y_emotion_pred, digits=5))
 
-    emotion_score = classifier.score(x_emotion_test, y_emotion_test)
-    print("emotion_score")
-    print(emotion_score)
-
-    # Redoing the same thing for sentiments
+    # # Redoing the same thing for sentiments
     nb_sentiment = classifier.fit(x_emotion_training, y_emotion_training)
 
-    # Testing the model
+    # # Testing the model
     y_emotion_pred = nb_sentiment.predict(x_sentiment_test)
 
     print("Base Sentiments Naive Bayes Model")
     print(confusion_matrix(y_emotion_test, y_emotion_pred))
-    print(classification_report(y_emotion_test, y_emotion_pred))
-
-    sentiment_score = classifier.score(x_sentiment_test, y_sentiment_test)
-    print("sentiment_score")
-    print(sentiment_score)
+    print(classification_report(y_emotion_test, y_emotion_pred, digits=5))
 
 # 2.3.2
-def decision_tree():
+def base_dt():
     # Classifying the data
     classifier = tree.DecisionTreeClassifier()
     classifier.fit(x_emotion_training, y_emotion_training)
@@ -74,12 +67,7 @@ def decision_tree():
     # Getting output
     print("Base Emotions Decision Tree Model")
     print(confusion_matrix(y_emotion_test, y_emotion_pred))
-    print(classification_report(y_emotion_test, y_emotion_pred))
-
-    emotion_score = classifier.score(x_emotion_test, y_emotion_test)
-    print("emotion_score")
-    print(emotion_score)
-
+    print(classification_report(y_emotion_test, y_emotion_pred, digits=5))
 
     # Redoing the same thing for sentiments
     classifier.fit(x_sentiment_training, y_sentiment_training)
@@ -89,14 +77,10 @@ def decision_tree():
 
     print("Base Sentiments Decision Tree Model")
     print(confusion_matrix(y_sentiment_test, y_sentiment_pred))
-    print(classification_report(y_sentiment_test, y_sentiment_pred))
-
-    sentiment_score = classifier.score(x_sentiment_test, y_sentiment_test)
-    print("sentiment_score")
-    print(sentiment_score)
+    print(classification_report(y_sentiment_test, y_sentiment_pred, digits=5))
 
 
-def multi_layered_perceptron():
+def base_mlp():
     # Classifying the data
     classifier = MLPClassifier()
     classifier.fit(x_emotion_training, y_emotion_training)
@@ -107,11 +91,7 @@ def multi_layered_perceptron():
     # Getting output
     print("Base Emotions Multi-Layered Perceptron")
     print(confusion_matrix(y_emotion_test, y_emotion_pred))
-    print(classification_report(y_emotion_test, y_emotion_pred))
-
-    emotion_score = classifier.score(x_emotion_test, y_emotion_test)
-    print("emotion_score")
-    print(emotion_score)
+    print(classification_report(y_emotion_test, y_emotion_pred, digits=5))
 
     # Redoing the same thing for sentiments
     classifier.fit(x_sentiment_training, y_sentiment_training)
@@ -121,13 +101,88 @@ def multi_layered_perceptron():
 
     print("Base Sentiments Multi-Layered Perceptron")
     print(confusion_matrix(y_sentiment_test, y_sentiment_pred))
-    print(classification_report(y_sentiment_test, y_sentiment_pred))
+    print(classification_report(y_sentiment_test, y_sentiment_pred, digits=5))
 
-    sentiment_score = classifier.score(x_sentiment_test, y_sentiment_test)
-    print("sentiment_score")
-    print(sentiment_score)
 
-x_sentiment_training, x_sentiment_test, y_sentiment_training, y_sentiment_test  = split_dataset_sentiment()
-# naive_bayes()
-decision_tree()
-# multi_layered_perceptron()
+# 2.3.4
+def top_mnb():
+    # Defining different parameters values we want to test 
+    params = {
+        'alpha': [ 0, 0.5, 1, 2, 3]
+    }
+
+    # Using GridSearchCV to find the best hyper-parameters to use
+    mnb = MultinomialNB()
+    gs = GridSearchCV(estimator=mnb, param_grid=params)
+    gs.fit(x_emotion_training, y_emotion_training)
+    best_params = gs.best_params_
+
+    # Applying the best hyper-parameters found by GridSearchCV to our classifier
+    improved_mnb = MultinomialNB(alpha=best_params['alpha'])
+
+    # Classifying the data and testing the model
+    improved_mnb.fit(x_emotion_training, y_emotion_training)
+    improved_mnb_emotion_pred = improved_mnb.predict(x_emotion_test)
+
+    # Getting the output
+    print("Top Emotions Naive Bayes Model")
+    print("Best hyperparams: {}".format(best_params))
+    print(confusion_matrix(y_emotion_test, improved_mnb_emotion_pred))
+    print(classification_report(y_emotion_test, improved_mnb_emotion_pred, digits=5))
+
+    # Redoing the same thing for sentiments
+    # Using GridSearchCV to find the best hyper-parameters to use
+    gs.fit(x_sentiment_training, y_sentiment_training)
+    best_params = gs.best_params_
+
+    # Applying the best hyper-parameters found by GridSearchCV to our classifier
+    improved_mnb = MultinomialNB(alpha=best_params['alpha'])
+
+     # Classifying the data and testing the model
+    improved_mnb.fit(x_sentiment_training, y_sentiment_training)
+    improved_mnb_sentiment_pred = improved_mnb.predict(x_sentiment_test)
+
+    # Getting the output
+    print("Top Sentiments Naive Bayes Model")
+    print("Best hyperparams: {}".format(best_params))
+    print(confusion_matrix(y_sentiment_test, improved_mnb_sentiment_pred))
+    print(classification_report(y_sentiment_test, improved_mnb_sentiment_pred, digits=5))
+
+# 2.3.5
+def top_dt():
+    params = {
+        'criterion': ['gini', 'entropy'],
+        'max_depth': [50, 100],
+        'min_samples_split': [2, 5, 8]
+    }
+
+    dtc = tree.DecisionTreeClassifier()
+
+    gs = GridSearchCV(estimator=dtc, param_grid=params)
+
+    gs.fit(x_emotion_training, y_emotion_training)
+
+    best_params = gs.best_params_ #{'criterion': 'gini', 'max_depth': 50, 'min_samples_split': 8}
+
+    improved_dtc = tree.DecisionTreeClassifier(criterion=best_params['criterion'], max_depth=best_params['max_depth'], min_samples_split=best_params['min_samples_split'])
+    improved_dtc.fit(x_emotion_training, y_emotion_training)
+    improved_dtc_emotion_pred = improved_dtc.predict(x_emotion_test)
+    
+    print("Top Emotions Decision Tree Model")
+    print("Best hyperparams: {}".format(best_params))
+    print(confusion_matrix(y_emotion_test, improved_dtc_emotion_pred))
+    print(classification_report(y_emotion_test, improved_dtc_emotion_pred, digits=5))
+
+    gs.fit(x_sentiment_training, y_sentiment_training)
+    best_params == gs.best_params_
+
+    improved_dtc = tree.DecisionTreeClassifier(criterion=best_params['criterion'], max_depth=best_params['max_depth'], min_samples_split=best_params['min_samples_split'])
+    improved_dtc.fit(x_sentiment_training, y_sentiment_training)
+    improved_dtc_sentiment_pred = improved_dtc.predict(x_sentiment_test)
+
+    print("Top Sentiments Decision Tree Model")
+    print("Best hyperparams: {}".format(best_params))
+    print(confusion_matrix(y_sentiment_test, improved_dtc_sentiment_pred))
+    print(classification_report(y_sentiment_test, improved_dtc_sentiment_pred, digits=5))
+
+base_dt()
