@@ -185,4 +185,45 @@ def top_dt():
     print(confusion_matrix(y_sentiment_test, improved_dtc_sentiment_pred))
     print(classification_report(y_sentiment_test, improved_dtc_sentiment_pred, digits=5))
 
+
+def top_MLP():
+    print('==================================================')
+    print("Top-MLP")
+    params = {
+        'activation': ['sigmoid', 'tanh', 'relu', 'identity'],
+		'hidden_layer_sizes': [(30,50), (10, 10, 10)],
+        'solver': ['sgd', 'adam']
+    }
+
+	# Classifying the data
+    mlp = MLPClassifier()
+    gs = GridSearchCV(estimator=mlp, param_grid=params)
+    gs.fit(x_emotion_training, y_emotion_training)
+
+    best_params = gs.best_params_
+
+    improved_mlp = MLPClassifier(activation = best_params['activation'], hidden_layer_sizes = best_params['hidden_layer_sizes'], solver = best_params['solver'])
+    improved_mlp.fit(x_emotion_training, y_emotion_training)
+    improved_mlp_emotion_pred = improved_mlp.predict(x_emotion_test)
+
+    print("Top Emotions Multi-Layered Perceptron")
+    print("Best hyperparams: {}".format(best_params))
+    print(confusion_matrix(y_emotion_test, improved_mlp_emotion_pred))
+    print(classification_report(y_emotion_test, improved_mlp_emotion_pred), digits=5)
+
+    # Redoing the same thing for sentiments
+    gs.fit(x_sentiment_training, y_sentiment_training)
+    best_params == gs.best_params_
+
+    improved_mlp = MLPClassifier(activation = best_params['activation'], hidden_layer_sizes = best_params['hidden_layer_sizes'], solver = best_params['solver'])
+    improved_mlp.fit(x_sentiment_training, y_sentiment_training)
+    improved_mlp_sentiment_pred = improved_mlp.predict(x_sentiment_test)
+
+    print("Top Sentiments Multi-Layered Perceptron")
+    print("Best hyperparams: {}".format(best_params))
+    print(confusion_matrix(y_sentiment_test, improved_mlp_sentiment_pred))
+    print(classification_report(y_sentiment_test, improved_mlp_sentiment_pred, digits=5))
+
+
 base_dt()
+top_MLP()
