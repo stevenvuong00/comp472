@@ -1,0 +1,265 @@
+[Running] python -u "c:\Users\Steven\Documents\University\S7_Concordia_Fall_2022\COMP472\Projects\Project1\comp472\WordsAsFeature.py"
+==================================================
+Top-MLP
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5) reached and the optimization hasn't converged yet.
+  warnings.warn(
+Top Emotions Multi-Layered Perceptron
+Best hyperparams: {'activation': 'logistic', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+[[1164   34    1    3   15    0    0    2    0    1    2    0    0    0
+     0   66    0   17   91    0  732   18    0    0    0    1    5   29]
+ [  39  761    8    6    2    0    0    1    0    0    4    0    0    0
+     0   18    0   17   13    0  313    5    0    0    0    1    6    9]
+ [   4   19  336   28    1    2    1    3    0    3   24    1    0    0
+     0    4    0    4    9    0  563    3    0    0    0    1    9    2]
+ [  20   56  160   35    4    1    2    7    0    6   57    2    0    0
+     0   17    0    2   18    0 1226   14    0    0    0    3   19    6]
+ [ 160   42   17    9   52    0    3    1    0    4   38    1    0    0
+     0   18    0   18   43    0 1839   31    0    0    0    1   15    1]
+ [  24    3    7    7    1    8    0    2    0    0   17    0    0    0
+     0   23    0    5   14    0  530   31    0    0    0    7   22    2]
+ [   8   18   13    2    1    0   24   20    0    0   14    0    0    0
+     0    4    0    1   11    0  839    4    0    0    0    0    6    3]
+ [  24   21   13    3    2    1    4  109    0    0    5    0    0    0
+     0    6    0    4    7    0  909    1    0    0    0    0    4   16]
+ [  19   12    3    0    1    1    0    0    0    0    3    0    0    0
+     0    9    0    4    7    0  293   70    0    0    0    0   15    1]
+ [  11   21   26   11    2    0    1    2    0    6    9    2    0    0
+     0    6    0    1    5    0  693   17    0    0    0    7   51    6]
+ [  22   27   46    5    8    1    2    3    0    1   65    2    0    0
+     0   11    0    2   16    0 1334    9    0    0    0    5   28    2]
+ [   3    8  110   27    2    0    0    2    0    9   18    7    0    0
+     0    2    0    0    1    0  371    2    0    0    0    1   14    2]
+ [   3    7   13   11    0    0    1    0    0    0    9    0    0    0
+     0    2    0    2    2    0  211    3    0    0    0    2   18    2]
+ [ 116   21   10    1    1    0    2    4    0    0    1    0    0    0
+     0   15    0   31   27    0  377    8    0    0    0    0    6   17]
+ [   2    6   12   12    0    0    0    3    0    1    6    0    0    0
+     0    0    0    0    2    0  302    4    0    0    0    1    5    3]
+ [ 103   13    3    2    1    3    1    0    0    0    2    0    0    0
+     0 1159    0   26   12    0  111   25    0    0    0    6   14    1]
+ [   0    0    0    0    0    0    0    0    0    0    1    0    0    0
+     0    0    0    1    2    0   40    2    0    0    0    2    8    0]
+ [ 132  132    5    3    1    0    0    2    0    0    2    0    0    0
+     0   68    0  144   56    0  334   12    0    0    0    1    5    5]
+ [  58    6    4    1    2    0    0    0    0    0    1    0    0    0
+     0    8    0    8  675    0  234    7    0    0    0    0    5    0]
+ [   4    1    3    5    0    1    0    1    0    0    0    0    0    0
+     0    1    0    1    2    0  146    3    0    0    0    0    6    0]
+ [ 289  234  209   47   34    9   15   42    0    6  106    4    0    0
+     0  113    0   44  155    0 9420  101    0    0    0   11   92   32]
+ [  55   12    2    7    3    4    0    1    0    0    7    0    0    0
+     0   32    0    6   15    0  447  277    0    0    0    0    5    1]
+ [  26    4    3    0    0    0    0    0    0    0    2    0    0    0
+     0    7    0    2    1    0   86    2    0    0    0    0    4    0]
+ [  24   20   16    5    3    1    1    2    0    0    9    1    0    0
+     0    2    0    2   10    0  789    9    0    0    0    5   15   13]
+ [  13    2    2    1    0    0    0    0    0    0    3    0    0    0
+     0   22    0    4    2    0  106    4    0    0    0    0    4    0]
+ [   1    3    7    1    1    1    0    0    0    0    3    0    0    0
+     0    6    0    1    1    0  107    6    0    0    0   57  125    0]
+ [   4   15   11    7    1    0    0    0    0    2   11    0    0    0
+     0    3    0    2    4    0  459    9    0    0    0   21  193    2]
+ [  31   20   18    4    0    0    2   16    0    0    2    2    0    0
+     0    1    0    6    3    0  495    0    0    0    0    0    5   94]]
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\metrics\_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\metrics\_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\Steven\miniconda3\lib\site-packages\sklearn\metrics\_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+                precision    recall  f1-score   support
+
+    admiration    0.49343   0.53370   0.51278      2181
+     amusement    0.50132   0.63259   0.55935      1203
+         anger    0.31758   0.33038   0.32386      1017
+     annoyance    0.14403   0.02115   0.03688      1655
+      approval    0.37681   0.02268   0.04278      2293
+        caring    0.24242   0.01138   0.02174       703
+     confusion    0.40678   0.02479   0.04674       968
+     curiosity    0.48879   0.09655   0.16124      1129
+        desire    0.00000   0.00000   0.00000       438
+disappointment    0.15385   0.00684   0.01310       877
+   disapproval    0.15439   0.04091   0.06468      1589
+       disgust    0.31818   0.01209   0.02329       579
+ embarrassment    0.00000   0.00000   0.00000       286
+    excitement    0.00000   0.00000   0.00000       637
+          fear    0.00000   0.00000   0.00000       359
+     gratitude    0.71411   0.78205   0.74654      1482
+         grief    0.00000   0.00000   0.00000        56
+           joy    0.40563   0.15965   0.22912       902
+          love    0.56063   0.66898   0.61003      1009
+   nervousness    0.00000   0.00000   0.00000       174
+       neutral    0.40419   0.85925   0.54977     10963
+      optimism    0.40916   0.31693   0.35719       874
+         pride    0.00000   0.00000   0.00000       137
+   realization    0.00000   0.00000   0.00000       927
+        relief    0.00000   0.00000   0.00000       163
+       remorse    0.42857   0.17813   0.25166       320
+       sadness    0.27415   0.25941   0.26657       744
+      surprise    0.37751   0.13448   0.19831       699
+
+      accuracy                        0.42446     34364
+     macro avg    0.25613   0.18185   0.17913     34364
+  weighted avg    0.35411   0.42446   0.32986     34364
