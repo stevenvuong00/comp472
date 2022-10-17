@@ -1,0 +1,18 @@
+Top Sentiments Naive Bayes ModelBest hyperparams: {'alpha': 1}# 
+# Confusion Matrix
+   928    623   1371    801
+   302   3973   2133   1248
+   669   1882   5455   2957
+   325    944   2301   8452
+# ===================================
+# 
+              precision    recall  f1-score   support
+
+   ambiguous    0.41727   0.24926   0.31209      3723
+    negative    0.53530   0.51894   0.52699      7656
+     neutral    0.48446   0.49758   0.49093     10963
+    positive    0.62803   0.70304   0.66342     12022
+
+    accuracy                        0.54732     34364
+   macro avg    0.51626   0.49221   0.49836     34364
+weighted avg    0.53873   0.54732   0.53994     34364

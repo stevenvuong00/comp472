@@ -1,0 +1,18 @@
+Top Sentiments Decision Tree ModelBest hyperparams: {'criterion': 'gini', 'max_depth': 50, 'min_samples_split': 8}# 
+# Confusion Matrix
+   636    266   2601    220
+   267   1991   4963    435
+   411    772   8909    871
+   364    547   5628   5483
+# ===================================
+# 
+              precision    recall  f1-score   support
+
+   ambiguous    0.37902   0.17083   0.23551      3723
+    negative    0.55677   0.26006   0.35452      7656
+     neutral    0.40310   0.81264   0.53889     10963
+    positive    0.78228   0.45608   0.57622     12022
+
+    accuracy                        0.49526     34364
+   macro avg    0.53029   0.42490   0.42629     34364
+weighted avg    0.56738   0.49526   0.47801     34364
