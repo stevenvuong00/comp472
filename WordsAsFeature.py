@@ -7,19 +7,33 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.neural_network import MLPClassifier
 
+
 # 2.1
-vec = CountVectorizer()
-commentsList = [list[0] for list in json_load]  # list all the first elements, which is the sentence
-commentsVectorized = vec.fit_transform(commentsList)  # encoded list of list of strings
-emotions = [list[1] for list in json_load]  # list of all emotions
-sentiments = [list[2] for list in json_load]  # list of all sentiments
-vocabulary = vec.get_feature_names_out()
-vocab_count = np.asarray(commentsVectorized.sum(axis=0))[0]
-print(dict(zip(vocabulary, vocab_count)))
+# Load and Process Data
+def process_data(print_vocab=False):
+    vec = CountVectorizer()
+    commentsList = [list[0] for list in json_load]  # list all the first elements, which is the sentence
+    commentsVectorized = vec.fit_transform(commentsList)  # encoded list of list of strings
+    emotions = [list[1] for list in json_load]  # list of all emotions
+    sentiments = [list[2] for list in json_load]  # list of all sentiments
+
+    if print_vocab:
+        vocabulary = vec.get_feature_names_out()
+        vocab_count = np.asarray(commentsVectorized.sum(axis=0))[0]
+        f = open("outputs/2-1/vocabulary.txt", "w", encoding="utf-8")
+        lexicon = dict(zip(vocabulary, vocab_count))
+        for word, count in lexicon.items():
+            f.write(word + " : " + str(count) + "\n")
+
+        f.close()
+
+    return commentsVectorized, emotions, sentiments
+
 
 # 2.2
 # Splitting the dataset
 def split_dataset_emotion():
+    commentsVectorized, emotions, sentiments = process_data()
     x_emotion_training, x_emotion_test, y_emotion_training, y_emotion_test = train_test_split(commentsVectorized,
                                                                                               emotions, test_size=0.20,
                                                                                               random_state=77)
@@ -27,6 +41,7 @@ def split_dataset_emotion():
 
 
 def split_dataset_sentiment():
+    commentsVectorized, emotions, sentiments = process_data()
     x_sentiment_training, x_sentiment_test, y_sentiment_training, y_sentiment_test = train_test_split(
         commentsVectorized, sentiments, test_size=0.20, random_state=77)
     return x_sentiment_training, x_sentiment_test, y_sentiment_training, y_sentiment_test
@@ -331,6 +346,8 @@ def top_MLP():
     fs.close()
 
 
+# print vocab to file
+process_data(True)
 # base_mnb()
 # print("base mnb done!")
 # base_dt()

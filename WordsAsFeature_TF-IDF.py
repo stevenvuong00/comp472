@@ -8,16 +8,13 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.neural_network import MLPClassifier
 
 
-# 2.1
+# from 2.1
 def process_data():
     vec = CountVectorizer()
     comments_list = [list[0] for list in json_load]  # list all the first elements, which is the sentence
     comments_vectorized = vec.fit_transform(comments_list)  # encoded list of list of strings
     emotions = [list[1] for list in json_load]  # list of all emotions
     sentiments = [list[2] for list in json_load]  # list of all sentiments
-    vocabulary = vec.get_feature_names_out()
-    vocab_count = np.asarray(comments_vectorized.sum(axis=0))[0]
-    print(dict(zip(vocabulary, vocab_count)))
 
     # apply 1-tfidf
     tfidf = TfidfTransformer()
@@ -25,8 +22,8 @@ def process_data():
     processed_comments = tfidf_comments_array
     return processed_comments, emotions, sentiments
 
-# 2.2
-# Splitting the dataset
+
+# from 2.2
 def split_dataset(target):
     input_comments, emotions, sentiments = process_data()
     if target == "emotions":
@@ -34,7 +31,8 @@ def split_dataset(target):
                                                                                               test_size=0.20,
                                                                                               random_state=77)
     elif target == "sentiments":
-        x_target_training, x_target_test, y_target_training, y_target_test = train_test_split(input_comments, sentiments,
+        x_target_training, x_target_test, y_target_training, y_target_test = train_test_split(input_comments,
+                                                                                              sentiments,
                                                                                               test_size=0.20,
                                                                                               random_state=77)
     else:
@@ -344,16 +342,16 @@ def top_MLP():
 
 
 base_mnb()
-print("base mnb done!")
+print("(TF-IDF) base mnb done!")
 base_dt()
-print("base dt done!")
+print("(TF-IDF) base dt done!")
 base_mlp()
-print("base mlp done!")
+print("(TF-IDF) base mlp done!")
 top_mnb()
-print("top mnb done!")
+print("(TF-IDF) top mnb done!")
 top_dt()
-print("top dt done!")
+print("(TF-IDF) top dt done!")
 top_MLP()
-print("top mlp done!")
+print("(TF-IDF) top mlp done!")
 
-print("everything done!")
+print("(TF-IDF) everything done!")
