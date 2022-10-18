@@ -1,6 +1,7 @@
 import gensim.downloader as api
 from matplotlib.font_manager import json_load
 from nltk import word_tokenize
+from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 from WordsAsFeature import json_load
@@ -17,54 +18,73 @@ model = api.load('word2vec-google-news-300')
 training_set, test_set = train_test_split(np.array(json_load), test_size=0.20, random_state=77)
 
 # Getting comments list in training set
-training_comments = np.array(training_set)[:, 0]
-test_comments = np.array(test_set)[:, 0]
+x_training_comments = np.array(training_set)[:, 0]
+y_training_emotions = np.array(training_set)[:, 1]
+y_training_sentiments = np.array(training_set)[:, 2]
+x_test_comments = np.array(test_set)[:, 0]
+y_test_emotions = np.array(test_set)[:, 1]
+y_test_sentiments = np.array(test_set)[:, 2]
 
 # 3.2 - Tokenizing the words 
-training_tokenized_comments = [word_tokenize(comment) for comment in training_comments]
-training_tokenized_words = [item for sublist in training_tokenized_comments for item in sublist]
-test_tokenized_comments = [word_tokenize(words) for words in test_comments]
-test_tokenized_words = [item for sublist in test_tokenized_comments for item in sublist]
-print("Number of tokens in the training set: {}".format(len(training_tokenized_words)))
+x_training_tokenized_comments = [word_tokenize(comment) for comment in x_training_comments]
+x_training_tokenized_words = [item for sublist in x_training_tokenized_comments for item in sublist]
+x_test_tokenized_comments = [word_tokenize(words) for words in x_test_comments]
+x_test_tokenized_words = [item for sublist in x_test_tokenized_comments for item in sublist]
+print("Number of tokens in the training set: {}".format(len(x_training_tokenized_words)))
 
 # 3.3 - Computing the average embeddings
-# Removing words with no embedding in Word2Vec
-for i, comment in enumerate(training_tokenized_comments):
-    for j, word in enumerate(comment):
-        if(not model.__contains__(word)):
-            del training_tokenized_comments[i][j]
-for i, comment in enumerate(test_tokenized_comments):
-    for j, word in enumerate(comment):
-        if(not model.__contains__(word)):
-            del test_tokenized_comments[i][j]
-training_embedded_comments = [model.get_mean_vector(tokenized_comment) for tokenized_comment in training_tokenized_comments] # Not sure about this
-test_embedded_comments = [model.get_mean_vector(tokenized_comment) for tokenized_comment in test_tokenized_comments] # Not sure about this
+x_embedded_comments_training = [model.get_mean_vector(tokenized_comment) for tokenized_comment in x_training_tokenized_comments] 
+x_embedded_comments_test = [model.get_mean_vector(tokenized_comment) for tokenized_comment in x_test_tokenized_comments] 
 
 # 3.4 - Computing hit rates
 # training_hit = 0
 # test_hit = 0
-# for word in training_tokenized_words:
+# for word in x_training_tokenized_words:
 #     if model.__contains__(word):
 #         training_hit = training_hit + 1
 
-# for word in test_tokenized_words:
+# for word in x_test_tokenized_words:
 #     if model.__contains__(word):
 #         test_hit = test_hit + 1
+# print("Training set hit rate: {}".format(training_hit/len(x_training_tokenized_words))) #0.774506703724449
+# print("Test set hit rate: {}".format(test_hit/len(x_test_tokenized_words))) #0.7745050929416748
 
-# accuracy = model.log_accuracy(training_tokenized_words)
-# print(accuracy)
-
-# print("Training set hit rate: {}".format(training_hit/len(training_tokenized_words)))
-# print("Test set hit rate: {}".format(test_hit/len(test_tokenized_words)))
-
+# 3.5 - training a Base-MLP with default parameters
 def base_mlp():
     clf = MLPClassifier()
-    training_emotions = [list[1] for list in training_set]
-    test_emotions = [list[1] for list in test_set]
-    clf.fit(training_embedded_comments, training_emotions)
-    score = clf.score(test_embedded_comments, test_emotions)
-    # Getting error here
-    # ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet. Took about 10mins?
-    print(score)
+    clf.fit(x_embedded_comments_training, y_training_emotions)
 
-# base_mlp()
+    # Testing the model
+    y_emotion_pred = clf.predict(x_embedded_comments_test)
+    
+    # file open
+    fe = open("outputs/3-5/Base-MLP_Emotion.txt", "w")
+
+    fe.write("Base Emotions Multi-Layered Perceptron")
+    np.savetxt(fe, confusion_matrix(y_test_emotions, y_emotion_pred),
+               fmt="%6.1d",
+               delimiter=" ",
+               header="\nConfusion Matrix",
+               footer="===================================\n")
+    fe.write(classification_report(y_test_emotions, y_emotion_pred, digits=5))
+    fe.close()
+
+    # Redoing the same thing for sentiments
+    clf.fit(x_embedded_comments_training, y_training_sentiments)
+
+    # Testing the model
+    y_sentiment_pred = clf.predict(x_embedded_comments_test)
+    
+    # file open
+    fs = open("outputs/3-5/Base-MLP_Sentiment.txt", "w")
+
+    fs.write("Base Sentiments Multi-Layered Perceptron")
+    np.savetxt(fs, confusion_matrix(y_test_sentiments, y_sentiment_pred),
+               fmt="%6.1d",
+               delimiter=" ",
+               header="\nConfusion Matrix",
+               footer="===================================\n")
+    fs.write(classification_report(y_test_sentiments, y_sentiment_pred, digits=5))
+    fs.close()
+
+base_mlp()
