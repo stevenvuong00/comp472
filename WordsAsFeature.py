@@ -14,10 +14,8 @@ commentsVectorized = vec.fit_transform(commentsList)  # encoded list of list of 
 emotions = [list[1] for list in json_load]  # list of all emotions
 sentiments = [list[2] for list in json_load]  # list of all sentiments
 vocabulary = vec.get_feature_names_out()
-vocabCount = np.asarray(commentsVectorized.sum(axis=0))[0]
-
-
-# print(dict(zip(vocabulary, vocabCount)))
+vocab_count = np.asarray(commentsVectorized.sum(axis=0))[0]
+print(dict(zip(vocabulary, vocab_count)))
 
 # 2.2
 # Splitting the dataset
@@ -333,17 +331,17 @@ def top_MLP():
     fs.close()
 
 
-base_mnb()
-print("base mnb done!")
-base_dt()
-print("base dt done!")
+# base_mnb()
+# print("base mnb done!")
+# base_dt()
+# print("base dt done!")
 # base_mlp()
 # print("base mlp done!")
-top_mnb()
-print("top mnb done!")
-top_dt()
-print("top dt done!")
+# top_mnb()
+# print("top mnb done!")
+# top_dt()
+# print("top dt done!")
 # top_MLP()
 # print("top mlp done!")
 
-print("everything done!")
+# print("everything done!")

@@ -17,15 +17,13 @@ def process_data():
     sentiments = [list[2] for list in json_load]  # list of all sentiments
     vocabulary = vec.get_feature_names_out()
     vocab_count = np.asarray(comments_vectorized.sum(axis=0))[0]
+    print(dict(zip(vocabulary, vocab_count)))
 
     # apply 1-tfidf
     tfidf = TfidfTransformer()
     tfidf_comments_array = tfidf.fit_transform(comments_vectorized)
     processed_comments = tfidf_comments_array
     return processed_comments, emotions, sentiments
-
-
-# print(dict(zip(vocabulary, vocabCount)))
 
 # 2.2
 # Splitting the dataset
@@ -36,7 +34,7 @@ def split_dataset(target):
                                                                                               test_size=0.20,
                                                                                               random_state=77)
     elif target == "sentiments":
-        x_target_training, x_target_test, y_target_training, y_target_test = train_test_split(input_comments, emotions,
+        x_target_training, x_target_test, y_target_training, y_target_test = train_test_split(input_comments, sentiments,
                                                                                               test_size=0.20,
                                                                                               random_state=77)
     else:
