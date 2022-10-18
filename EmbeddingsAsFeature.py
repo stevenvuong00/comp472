@@ -87,4 +87,42 @@ def base_mlp():
     fs.write(classification_report(y_test_sentiments, y_sentiment_pred, digits=5))
     fs.close()
 
-base_mlp()
+def top_mlp():
+    hyperparams = {'activation': 'logistic', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+    clf = MLPClassifier(activation=hyperparams['activation'], hidden_layer_sizes=hyperparams['hidden_layer_sizes'], solver=hyperparams['solver'])
+
+    clf.fit(x_embedded_comments_training, y_training_emotions)
+
+    # Testing the model
+    y_emotion_pred = clf.predict(x_embedded_comments_test)
+    
+    # file open
+    fe = open("outputs/3-5/Base-MLP_Emotion.txt", "w")
+
+    fe.write("Base Emotions Multi-Layered Perceptron")
+    np.savetxt(fe, confusion_matrix(y_test_emotions, y_emotion_pred),
+               fmt="%6.1d",
+               delimiter=" ",
+               header="\nConfusion Matrix",
+               footer="===================================\n")
+    fe.write(classification_report(y_test_emotions, y_emotion_pred, digits=5))
+    fe.close()
+
+    # Redoing the same thing for sentiments
+    clf.fit(x_embedded_comments_training, y_training_sentiments)
+
+    # Testing the model
+    y_sentiment_pred = clf.predict(x_embedded_comments_test)
+    
+    # file open
+    fs = open("outputs/3-5/Base-MLP_Sentiment.txt", "w")
+
+    fs.write("Base Sentiments Multi-Layered Perceptron")
+    np.savetxt(fs, confusion_matrix(y_test_sentiments, y_sentiment_pred),
+               fmt="%6.1d",
+               delimiter=" ",
+               header="\nConfusion Matrix",
+               footer="===================================\n")
+    fs.write(classification_report(y_test_sentiments, y_sentiment_pred, digits=5))
+    fs.close()
+    
