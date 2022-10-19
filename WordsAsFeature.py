@@ -74,6 +74,8 @@ def base_mnb():
                footer="===================================\n")
     fs.write(classification_report(y_emotion_test, y_emotion_pred, digits=5))
 
+    fs.close()
+
 
 # 2.3.2
 def base_dt():
@@ -331,8 +333,8 @@ def top_MLP():
     fs.close()
 
 
-# base_mnb()
-# print("base mnb done!")
+base_mnb()
+print("base mnb done!")
 # base_dt()
 # print("base dt done!")
 # base_mlp()
