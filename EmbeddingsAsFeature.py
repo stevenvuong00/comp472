@@ -56,7 +56,7 @@ def embeddingAsFeature(model_name):
 
 
 def base_mlp(x_embedded_comments_training, y_training_emotions, x_embedded_comments_test, y_test_emotions, y_training_sentiments, y_test_sentiments, model_name):
-    clf = MLPClassifier(max_iter=1)
+    clf = MLPClassifier(max_iter=300)
     clf.fit(x_embedded_comments_training, y_training_emotions)
 
     # Testing the model
@@ -64,7 +64,7 @@ def base_mlp(x_embedded_comments_training, y_training_emotions, x_embedded_comme
     
     # file open
     file_name = "[" + model_name + "] Base-MLP_Emotion.txt"
-    fe = open("outputs/3-5/" + file_name, "w")
+    fe = open("outputs/3/" + file_name, "w")
 
     fe.write("Base Emotions Multi-Layered Perceptron")
     np.savetxt(fe, confusion_matrix(y_test_emotions, y_emotion_pred),
@@ -83,7 +83,7 @@ def base_mlp(x_embedded_comments_training, y_training_emotions, x_embedded_comme
     
     # file open
     file_name = "[" + model_name + "] Base-MLP_Sentiment.txt"
-    fs = open("outputs/3-5/" + file_name, "w")
+    fs = open("outputs/3/" + file_name, "w")
 
     fs.write("Base Sentiments Multi-Layered Perceptron")
     np.savetxt(fs, confusion_matrix(y_test_sentiments, y_sentiment_pred),
@@ -96,7 +96,7 @@ def base_mlp(x_embedded_comments_training, y_training_emotions, x_embedded_comme
 
 def top_mlp(x_embedded_comments_training, y_training_emotions, x_embedded_comments_test, y_test_emotions, y_training_sentiments, y_test_sentiments, model_name):
     hyperparams = {'activation': 'logistic', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
-    clf = MLPClassifier(activation=hyperparams['activation'], hidden_layer_sizes=hyperparams['hidden_layer_sizes'], solver=hyperparams['solver'])
+    clf = MLPClassifier(activation=hyperparams['activation'], hidden_layer_sizes=hyperparams['hidden_layer_sizes'], solver=hyperparams['solver'], max_iter=300)
 
     clf.fit(x_embedded_comments_training, y_training_emotions)
 
@@ -105,7 +105,7 @@ def top_mlp(x_embedded_comments_training, y_training_emotions, x_embedded_commen
     
     # file open
     file_name = "[" + model_name + "] Top-MLP_Emotion.txt"
-    fe = open("outputs/3-5/" + file_name, "w")
+    fe = open("outputs/3/" + file_name, "w")
 
     fe.write("Base Emotions Multi-Layered Perceptron")
     np.savetxt(fe, confusion_matrix(y_test_emotions, y_emotion_pred),
@@ -124,7 +124,7 @@ def top_mlp(x_embedded_comments_training, y_training_emotions, x_embedded_commen
     
     # file open
     file_name = "[" + model_name + "] Top-MLP_Sentiment.txt"
-    fs = open("outputs/3-5/" + file_name, "w")
+    fs = open("outputs/3/" + file_name, "w")
 
     fs.write("Base Sentiments Multi-Layered Perceptron")
     np.savetxt(fs, confusion_matrix(y_test_sentiments, y_sentiment_pred),
