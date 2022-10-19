@@ -67,7 +67,7 @@ def base_mnb():
     fe.close()
 
     # # Redoing the same thing for sentiments
-    nb_sentiment = classifier.fit(x_emotion_training, y_emotion_training)
+    nb_sentiment = classifier.fit(x_sentiment_training, y_sentiment_training)
 
     # # Testing the model
     y_sentiment_pred = nb_sentiment.predict(x_sentiment_test)
@@ -345,13 +345,13 @@ base_mnb()
 print("(TF-IDF) base mnb done!")
 base_dt()
 print("(TF-IDF) base dt done!")
-base_mlp()
-print("(TF-IDF) base mlp done!")
-top_mnb()
-print("(TF-IDF) top mnb done!")
-top_dt()
-print("(TF-IDF) top dt done!")
-top_MLP()
-print("(TF-IDF) top mlp done!")
+# base_mlp()
+# print("(TF-IDF) base mlp done!")
+# top_mnb()
+# print("(TF-IDF) top mnb done!")
+# top_dt()
+# print("(TF-IDF) top dt done!")
+# top_MLP()
+# print("(TF-IDF) top mlp done!")
 
 print("(TF-IDF) everything done!")
