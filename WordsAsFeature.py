@@ -15,7 +15,7 @@ emotions = [list[1] for list in json_load]  # list of all emotions
 sentiments = [list[2] for list in json_load]  # list of all sentiments
 vocabulary = vec.get_feature_names_out()
 vocab_count = np.asarray(commentsVectorized.sum(axis=0))[0]
-print(dict(zip(vocabulary, vocab_count)))
+# print(dict(zip(vocabulary, vocab_count)))
 
 # 2.2
 # Splitting the dataset
@@ -59,20 +59,21 @@ def base_mnb():
     fe.close()
 
     # # Redoing the same thing for sentiments
-    nb_sentiment = classifier.fit(x_emotion_training, y_emotion_training)
+    nb_sentiment = classifier.fit(x_sentiment_training, y_sentiment_training)
 
     # # Testing the model
-    y_emotion_pred = nb_sentiment.predict(x_sentiment_test)
+    y_sentiment_pred = nb_sentiment.predict(x_sentiment_test)
 
     fs = open("outputs/2-3/Base-MNB_Sentiment.txt", "w")
 
     fs.write("Base Sentiments Naive Bayes Model")
-    np.savetxt(fs, confusion_matrix(y_emotion_test, y_emotion_pred),
+    np.savetxt(fs, confusion_matrix(y_sentiment_test, y_sentiment_pred),
                fmt="%6.1d",
                delimiter=" ",
                header="\nConfusion Matrix",
                footer="===================================\n")
-    fs.write(classification_report(y_emotion_test, y_emotion_pred, digits=5))
+    fs.write(classification_report(y_sentiment_test, y_sentiment_pred, digits=5))
+    fs.close()
 
 
 # 2.3.2
@@ -106,7 +107,7 @@ def base_dt():
     fs = open("outputs/2-3/Base-DT_Sentiment.txt", "w")
 
     fs.write("Base Sentiments Decision Tree Model")
-    np.savetxt(fs, confusion_matrix(y_emotion_test, y_emotion_pred),
+    np.savetxt(fs, confusion_matrix(y_sentiment_test, y_emotion_pred),
                fmt="%6.1d",
                delimiter=" ",
                header="\nConfusion Matrix",
@@ -331,10 +332,10 @@ def top_MLP():
     fs.close()
 
 
-# base_mnb()
-# print("base mnb done!")
-# base_dt()
-# print("base dt done!")
+base_mnb()
+print("base mnb done!")
+base_dt()
+print("base dt done!")
 # base_mlp()
 # print("base mlp done!")
 # top_mnb()
@@ -344,4 +345,4 @@ def top_MLP():
 # top_MLP()
 # print("top mlp done!")
 
-# print("everything done!")
+print("everything done!")

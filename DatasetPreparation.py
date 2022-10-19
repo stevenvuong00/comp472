@@ -31,4 +31,4 @@ def plot():
     plt.savefig("Sentiments Histogram")
     plt.show()
 
-plot()
+# plot()

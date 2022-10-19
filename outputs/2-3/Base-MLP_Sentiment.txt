@@ -1,0 +1,18 @@
+Base Sentiments Multi-Layered Perceptron# 
+# Confusion Matrix
+  1495    515   1145    568
+   530   4108   1963   1055
+  1129   1942   5416   2476
+   603   1019   2376   8024
+# ===================================
+# 
+              precision    recall  f1-score   support
+
+   ambiguous    0.39792   0.40156   0.39973      3723
+    negative    0.54167   0.53657   0.53911      7656
+     neutral    0.49688   0.49403   0.49545     10963
+    positive    0.66188   0.66744   0.66465     12022
+
+    accuracy                        0.55416     34364
+   macro avg    0.52459   0.52490   0.52474     34364
+weighted avg    0.55386   0.55416   0.55400     34364
