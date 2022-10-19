@@ -1,0 +1,18 @@
+Top Sentiments Multi-Layered PerceptronBest hyperparams: {'activation': 'logistic', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}# 
+# Confusion Matrix
+  1034    586   1413    690
+   290   4269   1938   1159
+   619   1991   5657   2696
+   310    999   2152   8561
+# ===================================
+# 
+              precision    recall  f1-score   support
+
+   ambiguous    0.45894   0.27773   0.34605      3723
+    negative    0.54417   0.55760   0.55080      7656
+     neutral    0.50690   0.51601   0.51141     10963
+    positive    0.65321   0.71211   0.68139     12022
+
+    accuracy                        0.56807     34364
+   macro avg    0.54081   0.51586   0.52241     34364
+weighted avg    0.56119   0.56807   0.56174     34364
