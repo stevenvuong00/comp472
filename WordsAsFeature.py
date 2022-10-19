@@ -333,8 +333,8 @@ def top_MLP():
     fs.close()
 
 
-base_mnb()
-print("base mnb done!")
+# base_mnb()
+# print("base mnb done!")
 # base_dt()
 # print("base dt done!")
 # base_mlp()
