@@ -17,7 +17,7 @@ def process_data():
     sentiments = [list[2] for list in json_load]  # list of all sentiments
     vocabulary = vec.get_feature_names_out()
     vocab_count = np.asarray(comments_vectorized.sum(axis=0))[0]
-    # print(dict(zip(vocabulary, vocab_count)))
+    print(dict(zip(vocabulary, vocab_count)))
 
     # apply 1-tfidf
     tfidf = TfidfTransformer()
