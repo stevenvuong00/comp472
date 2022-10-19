@@ -70,18 +70,18 @@ def base_mnb():
     nb_sentiment = classifier.fit(x_emotion_training, y_emotion_training)
 
     # # Testing the model
-    y_emotion_pred = nb_sentiment.predict(x_sentiment_test)
+    y_sentiment_pred = nb_sentiment.predict(x_sentiment_test)
 
     # file open
     fs = open("outputs/2-5/1-tfidf/Base-MNB_Sentiment.txt", "w")
 
     fs.write("Base Sentiments Naive Bayes Model")
-    np.savetxt(fs, confusion_matrix(y_emotion_test, y_emotion_pred),
+    np.savetxt(fs, confusion_matrix(y_sentiment_test, y_sentiment_pred),
                fmt="%6.1d",
                delimiter=" ",
                header="\nConfusion Matrix",
                footer="===================================\n")
-    fs.write(classification_report(y_emotion_test, y_emotion_pred, digits=5))
+    fs.write(classification_report(y_sentiment_test, y_sentiment_pred, digits=5))
     fs.close()
 
 
@@ -116,7 +116,7 @@ def base_dt():
     fs = open("outputs/2-5/1-tfidf/Base-DT_Sentiment.txt", "w")
 
     fs.write("Base Sentiments Decision Tree Model")
-    np.savetxt(fs, confusion_matrix(y_emotion_test, y_emotion_pred),
+    np.savetxt(fs, confusion_matrix(y_sentiment_test, y_sentiment_pred),
                fmt="%6.1d",
                delimiter=" ",
                header="\nConfusion Matrix",
@@ -156,7 +156,7 @@ def base_mlp():
     fs = open("outputs/2-5/1-tfidf/Base-MLP_Sentiment.txt", "w")
 
     fs.write("Base Sentiments Multi-Layered Perceptron")
-    np.savetxt(fs, confusion_matrix(y_emotion_test, y_emotion_pred),
+    np.savetxt(fs, confusion_matrix(y_sentiment_test, y_sentiment_pred),
                fmt="%6.1d",
                delimiter=" ",
                header="\nConfusion Matrix",

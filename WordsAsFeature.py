@@ -122,7 +122,7 @@ def base_dt():
     fs = open("outputs/2-3/Base-DT_Sentiment.txt", "w")
 
     fs.write("Base Sentiments Decision Tree Model")
-    np.savetxt(fs, confusion_matrix(y_sentiment_test, y_emotion_pred),
+    np.savetxt(fs, confusion_matrix(y_sentiment_test, y_sentiment_pred),
                fmt="%6.1d",
                delimiter=" ",
                header="\nConfusion Matrix",
