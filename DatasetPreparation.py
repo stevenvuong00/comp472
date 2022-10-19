@@ -18,7 +18,7 @@ def plot():
     plt.title("Histogram of the Distribution of Emotions")
     plt.xlabel("Emotions")
     plt.ylabel("Number of Occurences")
-    plt.savefig("Emotions Histogram")
+    plt.savefig("outputs/graphs/Emotions_Histogram.pdf")
     plt.show()
 
     plt.hist(sentiments_list)
@@ -28,7 +28,7 @@ def plot():
     plt.title("Histogram of the Distribution of Emotions")
     plt.xlabel("Sentiments")
     plt.ylabel("Number of Occurences")
-    plt.savefig("Sentiments Histogram")
+    plt.savefig("outputs/graphs/Sentiments_Histogram.pdf")
     plt.show()
 
 plot()
