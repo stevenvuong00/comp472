@@ -341,10 +341,10 @@ def top_MLP():
     fs.close()
 
 
-base_mnb()
-print("(TF-IDF) base mnb done!")
-base_dt()
-print("(TF-IDF) base dt done!")
+# base_mnb()
+# print("(TF-IDF) base mnb done!")
+# base_dt()
+# print("(TF-IDF) base dt done!")
 # base_mlp()
 # print("(TF-IDF) base mlp done!")
 # top_mnb()
