@@ -56,7 +56,7 @@ def embeddingAsFeature(model_name):
 
 
 def base_mlp(x_embedded_comments_training, y_training_emotions, x_embedded_comments_test, y_test_emotions, y_training_sentiments, y_test_sentiments, model_name):
-    clf = MLPClassifier(max_iter=300)
+    clf = MLPClassifier(max_iter=500)
     clf.fit(x_embedded_comments_training, y_training_emotions)
 
     # Testing the model
